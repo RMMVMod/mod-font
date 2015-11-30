@@ -1,8 +1,8 @@
 {
   "name": "font",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Change the GUI font of the editor.",
   "dependencies": {},
   "author": "orzFly",
-  "homepage": "https://github.com/orzFly/RMMVMod"
+  "homepage": "https://github.com/RMMVMod/mod-font"
 }
