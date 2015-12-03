@@ -37,25 +37,12 @@ function initialize() {
     mediumFontName = mediumFontLoader.name;
     heavyFontName  = heavyFontLoader.name;
     symbolFontName = symbolFontLoader.name;
-    
-    var proxy = Qt.createQmlObject(
-      'import QtQuick 2.3; import Tkool.rpg 1.0; QtObject {' + 
-      'function readFile(url) { return TkoolAPI.readFile(url); }' +
-      'function applicationDirPath() { return TkoolAPI.applicationDirPath(); }' +
-    '}', Qt.application);
-    
+
     var locale = Qt.locale().name;
-    var fontFamilies = Qt.fontFamilies();
-    
     var fontConfiguration = {};
     try {
-      var path = "file:///" + proxy.applicationDirPath() + "/font.json";
-      console.log("RMMVLanguageFix: trying to load font preferences from " + path);
-
-      var fontFile = proxy.readFile(path);
-      console.log("RMMVLanguageFix: loaded font preferences: " + fontFile);
-      fontConfiguration = JSON.parse(fontFile.toString());
-
+      var fontConfiguration = SETTINGS_PLACEHOLDER;
+      fontConfiguration = JSON.parse(fontConfiguration.toString());
       normalFontName = fontConfiguration.normalFontName || normalFontName;
       fixedFontName = fontConfiguration.fixedFontName || fixedFontName;
       mediumFontName = fontConfiguration.mediumFontName || mediumFontName;
